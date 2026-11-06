@@ -1,0 +1,3 @@
+# Synthetic demonstration document — NOT medical information
+
+This fictional reference catalog demonstrates document ingestion, provenance, chunking, and index administration. It contains no medication instructions, disease guidance, drug interactions, or patient records. Synthetic documents are excluded from patient retrieval.

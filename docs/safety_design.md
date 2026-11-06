@@ -1,0 +1,15 @@
+# Safety boundaries
+
+MediGuide is an educational development application. It makes no claim of regulatory approval, clinical validation, or suitability for medical decision-making. A deployable software artifact is not a production clinical service.
+
+Emergency phrases receive a short escalation to local emergency services or immediate medical care before retrieval or model calls. This heuristic can miss phrasing and can produce false positives; it cannot diagnose emergencies. No location-specific emergency number is guessed. Dose/treatment modification requests are refused, and missed-dose/prescription clarification directs the user to their specific leaflet or professional. Nothing computes a personal dose.
+
+Unknown interaction records always require professional review. Absence of a record never returns a “safe” status. Structured duplicate warnings require curated shared ingredient mappings. Formulation, strength, route, patient age, pregnancy, comorbidities, and other medicines are not comprehensively evaluated. Ingredient string matching is not a clinical equivalence determination.
+
+Every returned medical passage must be an exact substring of a reloaded approved nonsynthetic chunk, with matching document/chunk IDs. Arbitrary provider prose is rejected. This enforces extractive traceability, not clinical correctness, readability, source quality, or applicability. Source text may still contain outdated, conflicting, misleading, or technically worded information. The source assessment conservatively uses limited evidence; no score implies clinical certainty. Automatic conflict detection and freshness verification are not implemented beyond curator metadata.
+
+Source import is administrator-only, bounded, and file-path independent. XML entities and oversized DOCX expansion are blocked. Inert source text cannot invoke tools, modify medication rules, or override the final validation gate. Regex injection rejection is defense in depth, not proof that all malicious content is detected. Uploaded text must be reviewed. HTTPS references are validated by scheme, not automatically established as authoritative.
+
+Passwords use per-user salted scrypt, sessions use random opaque tokens stored only as hashes, and every conversation/execution read enforces account ownership. CORS uses exact origins, mutation origins are checked, cookies are SameSite Strict and HttpOnly, and secure-cookie mode is configurable for HTTPS. Production needs distributed rate limiting, identity lifecycle controls, logging review, secrets management, retention controls, backups, security testing, medical governance, and monitoring. Do not upload identifiable clinical records.
+
+The synthetic regression suite checks software behavior on fixed examples. It does not establish emergency-detection sensitivity, drug-interaction completeness, medical faithfulness, or false-reassurance rates in patients. Expert-adjudicated evaluation and external security review remain required before use beyond controlled development.

@@ -1,0 +1,17 @@
+# Retrieval and ingestion
+
+Admin imports retain source name, title, HTTPS source reference, content digest, timestamps, supplied metadata, approval, synthetic status, and version. Extra metadata can record issuer, publication/update dates, licensing, document type, and conflict review. Missing dates and licenses are unknown, never invented. DailyMed SPL ingestion uses a fixed HTTPS host, UUID validation, no redirects, XML entity protection, a 20-second timeout, and a 10 MB response cap.
+
+PDFs use PyMuPDF and page labels; DOCX uses paragraphs and tables with an expanded-archive cap; HTML removes scripts/styles/navigation; text uses UTF-8. OCR is not included. Paragraph-aware word-budget chunking uses a target of 280 words and 40 words of overlap. This is an approximate token budget, not a model tokenizer. Long warning paragraphs are preserved even above the target to avoid removing critical context. Page labels are retained as text; exact geometric PDF page provenance is not a structured guarantee.
+
+Duplicates are detected by cleaned full-text SHA-256. Instruction-pattern detection quarantines suspicious imports by rejecting them; it is not a complete prompt-injection classifier. Rendering treats all source text as inert quoted data and the model can only select existing IDs.
+
+Queries are normalized to terms, stopwords removed, and embedded. Offline mode uses signed hashed token vectors and must not be called semantic understanding. Optional Sentence Transformers provides model-based embeddings. FAISS cosine-like inner product and BM25 rankings are fused with reciprocal rank fusion. Results are deduplicated by unique chunks, filtered by approval/source, and require a lexical anchor plus minimum vector overlap. There is no cross-encoder reranker. Ranking scores are diagnostics, not evidence of medical truth.
+
+The API index is an in-memory reconstruction of committed source chunks, providing deletion/approval freshness. `build_vector_index.py` separately exports a FAISS index and manifest for inspection. Persistent shared index synchronization, incremental indexing, model caching management, robust semantic relevance/contradiction checks, and corpus-scale performance remain future work.
+
+## Current retrieval repair
+
+The earlier paragraph describes the original implementation. The current implementation caches FAISS/BM25 structures by eligible title/section/text content and embedding configuration. It applies source approval, synthetic exclusion, explicit medicine identity, section topic and source-expiry gates **before** reciprocal rank fusion. A hash-vector score below 0.05 no longer vetoes exact relevant lexical evidence. Generic “side effects” overlap alone cannot retrieve another medication. Section headings force a boundary with no cross-section overlap; side-effect/warning sections preserve frequency and warning context together. Query history contributes only a resolved follow-up medicine, never entire previous questions.
+
+The fixed official-reference manifest populates the active database with NHS adult paracetamol/ibuprofen pages and a current HPRA-hosted Paracetamol PDF. NHS references expire after seven days without re-verification; the product leaflet after thirty days. Ordinary uploaded documents require explicit administrator approval and may carry exact source-anchored medicine tags. Citation validation reloads canonical source URLs/titles/sections and checks expiry. See [RAG debugging](rag_debugging.md) for the before/after diagnosis, source provenance, tests and reproducible commands.

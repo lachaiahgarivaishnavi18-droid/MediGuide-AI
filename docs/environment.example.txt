@@ -1,0 +1,14 @@
+DATABASE_URL=sqlite:///./mediguide.db
+ENVIRONMENT=development
+CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+COOKIE_SECURE=false
+LLM_PROVIDER=extractive
+LLM_BASE_URL=https://api.openai.com/v1
+LLM_API_KEY=
+LLM_MODEL=
+EMBEDDING_PROVIDER=fastembed
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+EMBEDDING_LOCAL_FILES_ONLY=true
+SEMANTIC_MIN_SCORE=0.30
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
