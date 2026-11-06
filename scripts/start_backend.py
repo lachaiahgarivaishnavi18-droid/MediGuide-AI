@@ -41,6 +41,17 @@ def main():
         from app.database.session import SessionLocal
         with SessionLocal() as db:refresh=needs_reference_import(db)
         if refresh:run('scripts/import_trusted_references.py')
+    if os.environ.get('WARM_VECTOR_INDEX_ON_START','false').lower()=='true':
+        from sqlalchemy import select
+        from app.database.session import SessionLocal
+        from app.models.models import KnowledgeChunk,KnowledgeDocument
+        from app.knowledge_base.provenance import available,active_chunk
+        from app.rag.index import indexed_corpus
+        with SessionLocal() as db:
+            pairs=db.execute(select(KnowledgeChunk,KnowledgeDocument).join(KnowledgeDocument).order_by(KnowledgeChunk.id)).all()
+            texts=tuple(f'{d.title}\n{c.section}\n{c.text}' for c,d in pairs if available(d) and active_chunk(c,d))
+            if texts:indexed_corpus(texts,settings.embedding_provider,settings.embedding_model)
+        print('Approved-source vector cache ready before accepting requests.',flush=True)
     port=os.environ.get('PORT','8000')
     if not port.isdecimal() or not 1<=int(port)<=65535:raise ValueError('PORT must be a valid TCP port.')
     os.chdir(ROOT)

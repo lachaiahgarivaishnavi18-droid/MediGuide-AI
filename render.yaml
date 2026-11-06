@@ -29,6 +29,10 @@ services:
         value: sentence-transformers/all-MiniLM-L6-v2
       - key: EMBEDDING_LOCAL_FILES_ONLY
         value: "true"
+      - key: EMBEDDING_BATCH_SIZE
+        value: "4"
+      - key: WARM_VECTOR_INDEX_ON_START
+        value: "true"
       - key: IMPORT_TRUSTED_REFERENCES_ON_START
         value: "true"
       - key: PYTHONUNBUFFERED

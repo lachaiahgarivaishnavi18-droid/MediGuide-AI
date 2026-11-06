@@ -14,7 +14,7 @@ def local_model(model_name,local_only=True):
 
 def embed(texts):
     if settings.embedding_provider=='fastembed':
-        result=np.asarray(list(local_model(settings.embedding_model,settings.embedding_local_files_only).embed(texts,batch_size=32)),dtype='float32')
+        result=np.asarray(list(local_model(settings.embedding_model,settings.embedding_local_files_only).embed(texts,batch_size=settings.embedding_batch_size)),dtype='float32')
     elif settings.embedding_provider=='sentence-transformers':
         from sentence_transformers import SentenceTransformer
         result=np.asarray(sentence_model(settings.embedding_model).encode(texts,normalize_embeddings=True),dtype='float32')

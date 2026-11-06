@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     semantic_min_score: float = 0.30
     embedding_local_files_only: bool = True
+    embedding_batch_size: int = 32
     admin_email: str = ""
     admin_password: str = ""
     max_upload_bytes: int = 10 * 1024 * 1024
