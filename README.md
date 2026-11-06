@@ -200,3 +200,11 @@ See [expanded RAG verification](docs/expanded_rag_verification.md) for the sourc
 ## Query and refusal-echo repair
 
 See [actual browser query repair results](docs/rag_query_repair_verification.md) for the final 61-document, 382-chunk corpus, original-versus-expanded query diagnostics, refusal-echo and unknown-medicine safety fixes, exact requested browser questions, calibration results, and modified files.
+
+## Existing backend repository notes
+
+The earlier backend-branch README is retained below; its original commits remain in this repository history.
+
+> # MediGuide-AI
+> 
+> Backend-only Render deployment source. See [setup guide](docs/render_deployment.md) and `render.yaml`. Select branch `codex/render-backend` in Render. This branch does not publish a frontend; Vercel automatic deployment is disabled for this backend branch.
