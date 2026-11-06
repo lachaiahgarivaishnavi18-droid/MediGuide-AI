@@ -1,5 +1,5 @@
 """Container startup: validate durable storage, migrate, seed and load sources."""
-import os,sys,subprocess
+import os,sys,subprocess,shutil,re
 from pathlib import Path
 from urllib.parse import urlsplit
 from sqlalchemy.engine import make_url
@@ -42,6 +42,9 @@ def main():
         with SessionLocal() as db:refresh=needs_reference_import(db)
         if refresh:run('scripts/import_trusted_references.py')
     if os.environ.get('WARM_VECTOR_INDEX_ON_START','false').lower()=='true':
+        cache=ROOT/'runtime/indexes';cache.mkdir(parents=True,exist_ok=True)
+        for artifact in (ROOT/'data/vector-cache').glob('*'):
+            if re.fullmatch(r'[0-9a-f]{64}\.(?:faiss|json)',artifact.name):shutil.copy2(artifact,cache/artifact.name)
         from sqlalchemy import select
         from app.database.session import SessionLocal
         from app.models.models import KnowledgeChunk,KnowledgeDocument
