@@ -52,4 +52,4 @@ Official references: https://render.com/docs/blueprint-spec, https://render.com/
 
 ## Current status
 
-Deployment preparation is local. A live Render URL and a Vercel frontend URL are not yet available. Actual cloud deployment and end-to-end verification require your authenticated account and the repository's deployment files to be published. No frontend deployment has been triggered by these local preparation steps.
+The tested backend-only source is published on branch `codex/render-backend`; the `main` branch remains unchanged. Backend verification: 69 tests passed. A live Render URL and a Vercel frontend URL are not yet available. Actual cloud deployment and end-to-end verification require creating the Blueprint in your authenticated Render account. No frontend deployment was triggered. The backend branch disables its own Vercel automatic deployment through `vercel.json`. Docker/cloud execution has not yet been verified in this environment.
