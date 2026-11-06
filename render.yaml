@@ -18,7 +18,7 @@ services:
       - key: COOKIE_SECURE
         value: "true"
       - key: CORS_ORIGINS
-        value: ""
+        value: https://mediguide-ai-lemon.vercel.app
       - key: ADMIN_EMAIL
         sync: false
       - key: ADMIN_PASSWORD
