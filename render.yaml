@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: mediguide-api
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mediguide-db
+          property: connectionString
+      - key: ENVIRONMENT
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: CORS_ORIGINS
+        value: ""
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: LLM_PROVIDER
+        value: extractive
+      - key: EMBEDDING_PROVIDER
+        value: fastembed
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: EMBEDDING_LOCAL_FILES_ONLY
+        value: "true"
+      - key: IMPORT_TRUSTED_REFERENCES_ON_START
+        value: "true"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+databases:
+  - name: mediguide-db
+    plan: free
+    region: singapore
+    databaseName: mediguide
+    user: mediguide

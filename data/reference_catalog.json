@@ -1,0 +1,430 @@
+[
+  {
+    "id": "nhs-cetirizine-about",
+    "url": "https://www.nhs.uk/medicines/cetirizine/about-cetirizine/",
+    "medicine": "cetirizine",
+    "expected": "cetirizine",
+    "primary": true
+  },
+  {
+    "id": "nhs-cetirizine-effects",
+    "url": "https://www.nhs.uk/medicines/cetirizine/side-effects-of-cetirizine/",
+    "medicine": "cetirizine",
+    "expected": "cetirizine"
+  },
+  {
+    "id": "nhs-cetirizine-precautions",
+    "url": "https://www.nhs.uk/medicines/cetirizine/who-can-and-cannot-take-cetirizine/",
+    "medicine": "cetirizine",
+    "expected": "cetirizine"
+  },
+  {
+    "id": "nhs-cetirizine-instructions",
+    "url": "https://www.nhs.uk/medicines/cetirizine/how-and-when-to-take-cetirizine/",
+    "medicine": "cetirizine",
+    "expected": "cetirizine"
+  },
+  {
+    "id": "nhs-cetirizine-interactions",
+    "url": "https://www.nhs.uk/medicines/cetirizine/taking-cetirizine-with-other-medicines-and-herbal-supplements/",
+    "medicine": "cetirizine",
+    "expected": "cetirizine"
+  },
+  {
+    "id": "nhs-amoxicillin-about",
+    "url": "https://www.nhs.uk/medicines/amoxicillin/about-amoxicillin/",
+    "medicine": "amoxicillin",
+    "expected": "amoxicillin",
+    "primary": true
+  },
+  {
+    "id": "nhs-amoxicillin-effects",
+    "url": "https://www.nhs.uk/medicines/amoxicillin/side-effects-of-amoxicillin/",
+    "medicine": "amoxicillin",
+    "expected": "amoxicillin"
+  },
+  {
+    "id": "nhs-amoxicillin-instructions",
+    "url": "https://www.nhs.uk/medicines/amoxicillin/how-and-when-to-take-amoxicillin/",
+    "medicine": "amoxicillin",
+    "expected": "amoxicillin"
+  },
+  {
+    "id": "nhs-amoxicillin-interactions",
+    "url": "https://www.nhs.uk/medicines/amoxicillin/taking-amoxicillin-with-other-medicines-and-herbal-supplements/",
+    "medicine": "amoxicillin",
+    "expected": "amoxicillin"
+  },
+  {
+    "id": "nhs-loratadine-about",
+    "url": "https://www.nhs.uk/medicines/loratadine/about-loratadine/",
+    "medicine": "loratadine",
+    "expected": "loratadine",
+    "primary": true
+  },
+  {
+    "id": "nhs-loratadine-effects",
+    "url": "https://www.nhs.uk/medicines/loratadine/side-effects-of-loratadine/",
+    "medicine": "loratadine",
+    "expected": "loratadine"
+  },
+  {
+    "id": "nhs-omeprazole-about",
+    "url": "https://www.nhs.uk/medicines/omeprazole/",
+    "medicine": "omeprazole",
+    "expected": "omeprazole",
+    "primary": true
+  },
+  {
+    "id": "nhs-metformin-about",
+    "url": "https://www.nhs.uk/medicines/metformin/",
+    "medicine": "metformin",
+    "expected": "metformin",
+    "primary": true
+  },
+  {
+    "id": "nhs-antibiotics",
+    "url": "https://www.nhs.uk/medicines/antibiotics/",
+    "health_topics": [
+      "antibiotics"
+    ],
+    "expected": "antibiotic"
+  },
+  {
+    "id": "nhs-antibiotics-effects",
+    "url": "https://www.nhs.uk/medicines/antibiotics/side-effects/",
+    "health_topics": [
+      "antibiotics"
+    ],
+    "expected": "antibiotic"
+  },
+  {
+    "id": "nhs-antibiotics-interactions",
+    "url": "https://www.nhs.uk/medicines/antibiotics/interactions/",
+    "health_topics": [
+      "antibiotics"
+    ],
+    "expected": "antibiotic"
+  },
+  {
+    "id": "nhs-antihistamines",
+    "url": "https://www.nhs.uk/medicines/antihistamines/",
+    "health_topics": [
+      "antihistamines"
+    ],
+    "expected": "antihistamine"
+  },
+  {
+    "id": "nhs-headaches",
+    "url": "https://www.nhs.uk/symptoms/headaches/",
+    "health_topics": [
+      "headaches"
+    ],
+    "expected": "headache"
+  },
+  {
+    "id": "nhs-cold",
+    "url": "https://www.nhs.uk/conditions/common-cold/",
+    "health_topics": [
+      "common cold"
+    ],
+    "expected": "cold"
+  },
+  {
+    "id": "nhs-dehydration",
+    "url": "https://www.nhs.uk/conditions/dehydration/",
+    "health_topics": [
+      "dehydration"
+    ],
+    "expected": "dehydration"
+  },
+  {
+    "id": "nhs-fever",
+    "url": "https://www.nhs.uk/symptoms/fever-in-adults/",
+    "health_topics": [
+      "fever"
+    ],
+    "expected": "temperature"
+  },
+  {
+    "id": "nhs-allergies",
+    "url": "https://www.nhs.uk/conditions/allergies/",
+    "health_topics": [
+      "allergies"
+    ],
+    "expected": "allerg"
+  },
+  {
+    "id": "nhs-sore-throat",
+    "url": "https://www.nhs.uk/symptoms/sore-throat/",
+    "health_topics": [
+      "sore throat"
+    ],
+    "expected": "throat"
+  },
+  {
+    "id": "nhs-healthy-diet",
+    "url": "https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eating-a-balanced-diet/",
+    "health_topics": [
+      "healthy diet"
+    ],
+    "expected": "diet"
+  },
+  {
+    "id": "medline-antibiotics",
+    "url": "https://medlineplus.gov/antibiotics.html",
+    "source": "MedlinePlus",
+    "health_topics": [
+      "antibiotics"
+    ],
+    "expected": "antibiotic"
+  },
+  {
+    "id": "medline-drug-reactions",
+    "url": "https://medlineplus.gov/drugreactions.html",
+    "source": "MedlinePlus",
+    "health_topics": [
+      "medicine side effects",
+      "medicine precautions"
+    ],
+    "expected": "side effect"
+  },
+  {
+    "id": "medline-drug-safety",
+    "url": "https://medlineplus.gov/drugsafety.html",
+    "source": "MedlinePlus",
+    "health_topics": [
+      "medicine safety",
+      "medicine precautions"
+    ],
+    "expected": "medicine"
+  },
+  {
+    "id": "who-diet",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+    "source": "WHO",
+    "health_topics": [
+      "healthy diet"
+    ],
+    "expected": "diet",
+    "extract_sections": [
+      "Key facts"
+    ]
+  },
+  {
+    "id": "who-activity",
+    "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity",
+    "source": "WHO",
+    "health_topics": [
+      "physical activity"
+    ],
+    "expected": "activity",
+    "extract_sections": [
+      "Key facts",
+      "Overview"
+    ]
+  },
+  {
+    "id": "hpra-cetirizine",
+    "url": "https://assets.hpra.ie/products/Human/41949/1f7bdea4-e82b-4876-8a00-344071528003.pdf",
+    "source": "HPRA-hosted patient leaflet",
+    "format": "pdf",
+    "medicine": "cetirizine",
+    "expected": "Cetirizine Haleon",
+    "product": "Cetirizine Haleon 10mg Film Coated Tablets"
+  },
+  {
+    "id": "nhs-medicines-information",
+    "url": "https://www.nhs.uk/tests-and-treatments/medicines-information/",
+    "health_topics": [
+      "medicine safety",
+      "patient information leaflets",
+      "medicine precautions"
+    ],
+    "expected": "medicine"
+  },
+  {
+    "id": "nhs-medicine-care",
+    "url": "https://www.nhs.uk/social-care-and-support/practical-tips-if-you-care-for-someone/medicines-tips-for-carers/",
+    "health_topics": [
+      "medicine safety",
+      "medicine storage",
+      "medicine precautions"
+    ],
+    "expected": "medicine"
+  },
+  {
+    "id": "medline-medication-errors",
+    "url": "https://medlineplus.gov/medicationerrors.html",
+    "source": "MedlinePlus",
+    "health_topics": [
+      "medicine safety",
+      "medicine precautions",
+      "patient information leaflets"
+    ],
+    "expected": "medicine"
+  },
+  {
+    "id": "nhs-azithromycin-about",
+    "url": "https://www.nhs.uk/medicines/azithromycin/about-azithromycin/",
+    "medicine": "azithromycin",
+    "expected": "azithromycin",
+    "primary": true
+  },
+  {
+    "id": "nhs-azithromycin-effects",
+    "url": "https://www.nhs.uk/medicines/azithromycin/side-effects-of-azithromycin/",
+    "medicine": "azithromycin",
+    "expected": "azithromycin"
+  },
+  {
+    "id": "nhs-azithromycin-precautions",
+    "url": "https://www.nhs.uk/medicines/azithromycin/who-can-and-cannot-take-azithromycin/",
+    "medicine": "azithromycin",
+    "expected": "azithromycin"
+  },
+  {
+    "id": "nhs-azithromycin-instructions",
+    "url": "https://www.nhs.uk/medicines/azithromycin/how-and-when-to-take-azithromycin/",
+    "medicine": "azithromycin",
+    "expected": "azithromycin"
+  },
+  {
+    "id": "nhs-azithromycin-interactions",
+    "url": "https://www.nhs.uk/medicines/azithromycin/taking-azithromycin-with-other-medicines-and-herbal-supplements/",
+    "medicine": "azithromycin",
+    "expected": "azithromycin"
+  },
+  {
+    "id": "nhs-pantoprazole-about",
+    "url": "https://www.nhs.uk/medicines/pantoprazole/about-pantoprazole/",
+    "medicine": "pantoprazole",
+    "expected": "pantoprazole",
+    "primary": true
+  },
+  {
+    "id": "nhs-pantoprazole-effects",
+    "url": "https://www.nhs.uk/medicines/pantoprazole/side-effects-of-pantoprazole/",
+    "medicine": "pantoprazole",
+    "expected": "pantoprazole"
+  },
+  {
+    "id": "nhs-pantoprazole-precautions",
+    "url": "https://www.nhs.uk/medicines/pantoprazole/who-can-and-cannot-take-pantoprazole/",
+    "medicine": "pantoprazole",
+    "expected": "pantoprazole"
+  },
+  {
+    "id": "nhs-pantoprazole-instructions",
+    "url": "https://www.nhs.uk/medicines/pantoprazole/how-and-when-to-take-pantoprazole/",
+    "medicine": "pantoprazole",
+    "expected": "pantoprazole"
+  },
+  {
+    "id": "nhs-pantoprazole-interactions",
+    "url": "https://www.nhs.uk/medicines/pantoprazole/taking-pantoprazole-with-other-medicines-and-herbal-supplements/",
+    "medicine": "pantoprazole",
+    "expected": "pantoprazole"
+  },
+  {
+    "id": "nhs-aspirin-for-pain-relief-about",
+    "url": "https://www.nhs.uk/medicines/aspirin/",
+    "medicine": "aspirin",
+    "expected": "aspirin",
+    "primary": true
+  },
+  {
+    "id": "nhs-colecalciferol-about",
+    "url": "https://www.nhs.uk/medicines/colecalciferol/about-colecalciferol/",
+    "medicine": "colecalciferol",
+    "expected": "colecalciferol",
+    "aliases": {
+      "vitamin D": "colecalciferol"
+    },
+    "primary": true
+  },
+  {
+    "id": "nhs-colecalciferol-effects",
+    "url": "https://www.nhs.uk/medicines/colecalciferol/side-effects-of-colecalciferol/",
+    "medicine": "colecalciferol",
+    "expected": "colecalciferol"
+  },
+  {
+    "id": "nhs-colecalciferol-precautions",
+    "url": "https://www.nhs.uk/medicines/colecalciferol/who-can-and-cannot-take-colecalciferol/",
+    "medicine": "colecalciferol",
+    "expected": "colecalciferol"
+  },
+  {
+    "id": "nhs-colecalciferol-instructions",
+    "url": "https://www.nhs.uk/medicines/colecalciferol/how-and-when-to-take-colecalciferol/",
+    "medicine": "colecalciferol",
+    "expected": "colecalciferol"
+  },
+  {
+    "id": "nhs-colecalciferol-interactions",
+    "url": "https://www.nhs.uk/medicines/colecalciferol/taking-colecalciferol-with-other-medicines-and-herbal-supplements/",
+    "medicine": "colecalciferol",
+    "expected": "colecalciferol"
+  },
+  {
+    "id": "nhs-cyanocobalamin-about",
+    "url": "https://www.nhs.uk/medicines/cyanocobalamin/",
+    "medicine": "cyanocobalamin",
+    "expected": "cyanocobalamin",
+    "aliases": {
+      "vitamin B12": "cyanocobalamin"
+    },
+    "primary": true
+  },
+  {
+    "id": "nhs-amlodipine-about",
+    "url": "https://www.nhs.uk/medicines/amlodipine/",
+    "medicine": "amlodipine",
+    "expected": "amlodipine",
+    "primary": true
+  },
+  {
+    "id": "nhs-ramipril-about",
+    "url": "https://www.nhs.uk/medicines/ramipril/about-ramipril/",
+    "medicine": "ramipril",
+    "expected": "ramipril",
+    "primary": true
+  },
+  {
+    "id": "nhs-ramipril-effects",
+    "url": "https://www.nhs.uk/medicines/ramipril/side-effects-of-ramipril/",
+    "medicine": "ramipril",
+    "expected": "ramipril"
+  },
+  {
+    "id": "nhs-ramipril-precautions",
+    "url": "https://www.nhs.uk/medicines/ramipril/who-can-and-cannot-take-ramipril/",
+    "medicine": "ramipril",
+    "expected": "ramipril"
+  },
+  {
+    "id": "nhs-ramipril-instructions",
+    "url": "https://www.nhs.uk/medicines/ramipril/how-and-when-to-take-ramipril/",
+    "medicine": "ramipril",
+    "expected": "ramipril"
+  },
+  {
+    "id": "nhs-ramipril-interactions",
+    "url": "https://www.nhs.uk/medicines/ramipril/taking-ramipril-with-other-medicines-and-herbal-supplements/",
+    "medicine": "ramipril",
+    "expected": "ramipril"
+  },
+  {
+    "id": "nhs-amoxicillin-precautions",
+    "url": "https://www.nhs.uk/medicines/amoxicillin/who-can-and-cannot-take-amoxicillin/",
+    "medicine": "amoxicillin",
+    "expected": "amoxicillin"
+  },
+  {
+    "id": "nhs-cetirizine-faq",
+    "url": "https://www.nhs.uk/medicines/cetirizine/common-questions-about-cetirizine/",
+    "medicine": "cetirizine",
+    "expected": "cetirizine"
+  }
+]
