@@ -6,6 +6,7 @@ import { ReactFlow, Background, Controls, type Node, type Edge } from '@xyflow/r
 import '@xyflow/react/dist/style.css'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
 import { api, errorText } from './api'
+import { authErrorText, readUser, waitForAuthService } from './auth'
 import type { User, Conversation, Message, ChatResponse, KnowledgeDocument, Medication, Execution, Overview } from './types'
 import ChatPanel from './ChatPanel'
 
@@ -28,7 +29,7 @@ function useFetch<T,>(path: string, initial: T) {
 
 export default function App() {
   const [user,setUser]=useState<User|null>(null), [checking,setChecking]=useState(true)
-  useEffect(()=>{api.get<User>('/auth/me').then(r=>setUser(r.data)).catch(()=>{}).finally(()=>setChecking(false))},[])
+  useEffect(()=>{api.get<User>('/auth/me').then(r=>setUser(readUser(r.data))).catch(()=>{}).finally(()=>setChecking(false))},[])
   if(checking) return <Loading/>
   return <Routes><Route path="/" element={<Landing user={user}/>}/><Route path="/login" element={user ? <Navigate to="/app/dashboard"/> : <SignIn onLogin={setUser}/>}/><Route path="/app/*" element={user ? <Auth.Provider value={{user,setUser}}><Workspace onLogout={()=>setUser(null)}/></Auth.Provider> : <Navigate to="/login"/>}/><Route path="*" element={<Navigate to="/"/>}/></Routes>
 }
@@ -38,7 +39,7 @@ function Landing({user}:{user:User|null}){return <div className="landing"><nav><
 
 function SignIn({onLogin}:{onLogin:(u:User)=>void}){
   const [register,setRegister]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('')
-  async function submit(e:FormEvent<HTMLFormElement>){e.preventDefault();const form=new FormData(e.currentTarget);setBusy(true);setError('');try{const r=await api.post<User>(register?'/auth/register':'/auth/login',Object.fromEntries(form));onLogin(r.data)}catch(e){setError(errorText(e))}finally{setBusy(false)}}
+  async function submit(e:FormEvent<HTMLFormElement>){e.preventDefault();const form=new FormData(e.currentTarget);setBusy(true);setError('');try{await waitForAuthService();const r=await api.post<unknown>(register?'/auth/register':'/auth/login',Object.fromEntries(form));onLogin(readUser(r.data))}catch(e){setError(authErrorText(e))}finally{setBusy(false)}}
   return <div className="auth-page"><Link to="/"><Brand/></Link><div className="auth-card"><span className="eyebrow">YOUR EDUCATION WORKSPACE</span><h1>{register?'Create your account':'Welcome back.'}</h1><p>More understanding. More informed conversations.</p><ErrorNotice text={error}/><form onSubmit={submit}>{register&&<label>Your name<input name="name" required maxLength={100} autoComplete="name"/></label>}<label>Email address<input type="email" name="email" required autoComplete="email"/></label><label>Password<input type="password" name="password" required minLength={register?12:1} maxLength={128} autoComplete={register?'new-password':'current-password'}/></label>{register&&<small>Use at least 12 characters. Please avoid adding private health details to your profile.</small>}<button disabled={busy}>{busy?<LoaderCircle className="spin" size={18}/>:null}{register?'Create account':'Sign in'}<ArrowRight size={17}/></button></form><button className="text-button" onClick={()=>{setRegister(!register);setError('')}}>{register?'Already have an account? Sign in':'New here? Create an account'}</button></div><p className="auth-foot">Educational information. Human care comes first.</p></div>
 }
 

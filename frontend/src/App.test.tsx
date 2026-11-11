@@ -22,6 +22,7 @@ describe('Application routes and API integration',()=>{
     const user={id:'1',name:'Alex',email:'alex@example.test',role:'patient',preferences:{}}
     vi.mocked(api.get).mockImplementation(async(path)=>{
       if(path==='/auth/me')throw new Error('unauthenticated')
+      if(path==='/system/status')return {data:{status:'ok'}}
       if(String(path).startsWith('/conversations'))return {data:[]}
       return {data:{conversations:0,queries:0,safety_escalations:0,source_status:{approved_documents:0}}}
     })
