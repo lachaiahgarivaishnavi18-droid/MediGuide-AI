@@ -1,6 +1,8 @@
 import logging
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from sqlalchemy.exc import InterfaceError, OperationalError, TimeoutError as PoolTimeoutError
 from app.core.config import settings
 from app.api.routes import router
 
@@ -17,6 +19,17 @@ async def headers(request: Request, call_next):
     response.headers["Referrer-Policy"] = "no-referrer"
     response.headers["Cache-Control"] = "no-store"
     return response
+
+
+@app.exception_handler(InterfaceError)
+@app.exception_handler(OperationalError)
+@app.exception_handler(PoolTimeoutError)
+async def database_unavailable(request: Request, error: Exception):
+    logging.getLogger(__name__).warning('Database temporarily unavailable (%s)', type(error).__name__)
+    return JSONResponse(
+        status_code=503,
+        content={'code': 'DATABASE_UNAVAILABLE', 'detail': 'The account database is temporarily unavailable.'},
+    )
 
 
 app.include_router(router)

@@ -218,3 +218,18 @@ def test_stream_and_analytics(patient):
     data=patient.get('/api/analytics/overview').json()
     assert data['queries']==1 and data['insufficient_evidence_rate']==1
     assert patient.get('/api/agents/status').json()['orchestration']=='LangGraph'
+
+
+def test_login_returns_sanitized_database_error(client, db, monkeypatch):
+    from sqlalchemy.exc import OperationalError
+
+    def unavailable(*args, **kwargs):
+        raise OperationalError(None, None, RuntimeError('private driver details'))
+
+    monkeypatch.setattr(db, 'scalar', unavailable)
+    response = client.post('/api/auth/login', json={
+        'email': 'patient@example.test', 'password': 'test-password-123',
+    })
+    assert response.status_code == 503
+    assert response.json()['code'] == 'DATABASE_UNAVAILABLE'
+    assert 'private driver details' not in response.text
